@@ -1,0 +1,195 @@
+<mat-stepper #stepper>
+  <!-- Dados pessoais -->
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Seus dados pessoais</ng-template>
+
+      <div class="inputs">
+        <div class="coluna">
+          <mat-form-field appearance="fill">
+            <mat-label>Nome</mat-label>
+            <input
+              matInput
+              formControlName="nomeCtrl"
+              placeholder="Ex. Heather"
+              readonly
+            />
+
+            <mat-error *ngIf="firstFormGroup.get('nomeCtrl')?.hasError('required') && firstFormGroup.get('nomeCtrl')?.touched">
+              O nome é obrigatório.
+            </mat-error>
+
+            <mat-error *ngIf="firstFormGroup.get('nomeCtrl')?.hasError('minlength') && firstFormGroup.get('nomeCtrl')?.touched">
+              O nome precisa ter no mínimo 3 letras.
+            </mat-error>
+
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Sobrenome</mat-label>
+            <input
+              matInput
+              formControlName="sobrenomeCtrl"
+              placeholder="Ex. Mason"
+              required
+              readonly
+            />
+
+            <mat-error *ngIf="firstFormGroup.get('sobrenomeCtrl')?.hasError('required') && firstFormGroup.get('sobrenomeCtrl')?.touched">
+              O sobrenome é obrigatório.
+            </mat-error>
+
+            <mat-error *ngIf="firstFormGroup.get('sobrenomeCtrl')?.hasError('minlength') && firstFormGroup.get('sobrenomeCtrl')?.touched">
+              O sobrenome precisa ter no mínimo 3 letras.
+            </mat-error>
+
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Data de Nascimento</mat-label>
+            <input
+              matInput
+              formControlName="dataNascimentoCtrl"
+              type="date"
+              required
+              readonly
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>CPF</mat-label>
+            <input
+              matInput
+              formControlName="cpfCtrl"
+              placeholder="Ex. 000.000.000-00"
+              required
+              readonly
+            />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div>
+        <button mat-button matStepperNext [disabled]="isDisabled">Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <!-- Dados do endereço -->
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Seu endereço</ng-template>
+
+      <div class="inputs">
+
+        <div class="coluna">
+          <mat-form-field appearance="fill">
+            <mat-label>CEP</mat-label>
+            <input
+              matInput
+              formControlName="cepCtrl"
+              placeholder="Ex. 12345-678"
+              required
+              mask="00000-000"
+              (keyup)="buscaCep()"
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Logradouro</mat-label>
+            <input
+              matInput
+              formControlName="logradouroCtrl"
+              placeholder="Ex. Rua da Alegria"
+              required
+              readonly
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Bairro</mat-label>
+            <input
+              matInput
+              formControlName="bairroCtrl"
+              placeholder="Ex. Bairro da felicidade"
+              required
+              readonly
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Número</mat-label>
+            <input
+              matInput
+              formControlName="numeroCtrl"
+              placeholder="Ex. 1"
+              required
+            />
+          </mat-form-field>
+        </div>
+
+        <div class="coluna">
+
+          <mat-form-field appearance="fill">
+            <mat-label>Complemento</mat-label>
+            <input
+              matInput
+              formControlName="complementoCtrl"
+              placeholder="Ex. Casa 1"
+              required
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Cidade</mat-label>
+            <input
+              matInput
+              formControlName="cidadeCtrl"
+              placeholder="Ex. Cidade do Sorriso"
+              required
+              readonly
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Estado</mat-label>
+            <input
+              matInput
+              formControlName="estadoCtrl"
+              placeholder="Ex. Estado da Imaginação"
+              required
+              readonly
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>UF</mat-label>
+            <input
+              matInput
+              formControlName="ufCtrl"
+              placeholder="Ex. UF"
+              required
+              readonly
+            />
+          </mat-form-field>
+        </div>
+
+      </div>
+
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext [disabled]="isDisabled">Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <!-- Confirmação final -->
+  <mat-step>
+    <ng-template matStepLabel>Confirmar atualização</ng-template>
+    <p>É isso. Deseja continuar e atualizar seus dados?</p>
+    <div>
+      <button mat-button matStepperPrevious>Voltar e revisar</button>
+      <button mat-button>Continuar e atualizar</button>
+    </div>
+  </mat-step>
+</mat-stepper>
