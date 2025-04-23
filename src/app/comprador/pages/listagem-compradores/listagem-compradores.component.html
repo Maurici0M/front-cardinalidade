@@ -1,32 +1,32 @@
-<table cdk-table [dataSource]="dataSource" class="table-container">
-  <!-- Position Column -->
-  <ng-container cdkColumnDef="position">
+<table cdk-table [dataSource]="listaCompradores" class="table-container">
+  <!-- classificacao -->
+  <ng-container cdkColumnDef="classificacao">
     <th cdk-header-cell *cdkHeaderCellDef> Classificação </th>
-    <td cdk-cell *cdkCellDef="let element"> {{element.position}} </td>
+    <td cdk-cell *cdkCellDef="let comprador"> N/A </td>
   </ng-container>
 
-  <!-- Name Column -->
-  <ng-container cdkColumnDef="name">
+  <!-- nome -->
+  <ng-container cdkColumnDef="nome">
     <th cdk-header-cell *cdkHeaderCellDef> Nome </th>
-    <td cdk-cell *cdkCellDef="let element"> {{element.name}} </td>
+    <td cdk-cell *cdkCellDef="let comprador"> {{comprador.nome}} </td>
   </ng-container>
 
-  <!-- Weight Column -->
-  <ng-container cdkColumnDef="weight">
+  <!-- sobrenome -->
+  <ng-container cdkColumnDef="sobrenome">
     <th cdk-header-cell *cdkHeaderCellDef> Sobrenome </th>
-    <td cdk-cell *cdkCellDef="let element"> {{element.weight}} </td>
+    <td cdk-cell *cdkCellDef="let comprador"> {{comprador.sobrenome}} </td>
   </ng-container>
 
-  <!-- Symbol Column -->
-  <ng-container cdkColumnDef="symbol">
+  <!-- estado -->
+  <ng-container cdkColumnDef="estado">
     <th cdk-header-cell *cdkHeaderCellDef> Estado </th>
-    <td cdk-cell *cdkCellDef="let element"> {{element.symbol}} </td>
+    <td cdk-cell *cdkCellDef="let comprador"> {{comprador.endereco.estado}} </td>
   </ng-container>
 
-  <!-- Symbol Column -->
-  <ng-container cdkColumnDef="teste">
+  <!-- quantidade pedidos -->
+  <ng-container cdkColumnDef="pedidos">
     <th cdk-header-cell *cdkHeaderCellDef> Pedidos Realizados </th>
-    <td cdk-cell *cdkCellDef="let element"> 0 </td>
+    <td cdk-cell *cdkCellDef="let comprador"> 0 </td>
   </ng-container>
 
   <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>

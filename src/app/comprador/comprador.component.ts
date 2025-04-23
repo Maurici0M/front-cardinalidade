@@ -8,6 +8,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class CompradorComponent {
   @Output() onPageView: any = new EventEmitter<any>();
-  @Input() subPage: string = 'CADASTRO';
+  @Input() subPage: 'CADASTRO' | 'LISTAGEM' | 'EDITAR' = 'CADASTRO';
+  @Input() userAccess!: string;
 
 }

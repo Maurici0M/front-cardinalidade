@@ -18,6 +18,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { ListagemCompradoresComponent } from './comprador/pages/listagem-compradores/listagem-compradores.component';
 import { CadastroCompradorComponent } from './comprador/pages/cadastro-comprador/cadastro-comprador.component';
 import { CompradorComponent } from './comprador/comprador.component';
+import { EditarCadastroComponent } from './comprador/pages/editar-cadastro/editar-cadastro.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { CompradorComponent } from './comprador/comprador.component';
     ListagemCompradoresComponent,
     CadastroCompradorComponent,
     CompradorComponent,
+    EditarCadastroComponent,
   ],
   imports: [
     BrowserModule,

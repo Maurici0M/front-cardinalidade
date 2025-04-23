@@ -1,15 +1,29 @@
 <ng-container *ngIf="currentPage === 'TESTE'">
-  <p><b>Teste</b> de renderização dinâmica com input e output para o componente de comprador </p>
+  <p>
+    <b>Teste</b> de renderização dinâmica com input e output para o componente
+    de comprador
+  </p>
 
-  <button (click)="testeMudaPagina('COMPRADOR_COMPONENT', 'CADASTRO')">TESTE Comprador Component</button>
+  <button (click)="testeMudaPagina('COMPRADOR_COMPONENT', 'CADASTRO')">
+    TESTE Comprador Component
+  </button>
 
-  <button (click)="testeMudaPagina('COMPRADOR_COMPONENT', 'LISTAGEM')">TESTE LISTAGEM COMPRADOR Component</button>
+  <button (click)="testeMudaPagina('COMPRADOR_COMPONENT', 'LISTAGEM')">
+    TESTE LISTAGEM COMPRADOR Component
+  </button>
+
+  <button (click)="testeMudaPagina('COMPRADOR_COMPONENT', 'EDITAR')">
+    TESTE EDITAR CADASTRO COMPRADOR Component
+  </button>
 </ng-container>
 
 <ng-container *ngIf="currentPage === 'COMPRADOR_COMPONENT'">
-  <app-comprador (onPageView)="onPageViewChange($event)" [subPage]="subPage">
+  <app-comprador
+    (onPageView)="onPageViewChange($event)"
+    [subPage]="subPage"
+    [userAccess]="userAccess"
+  >
   </app-comprador>
 
   <button (click)="testeMudaPagina('TESTE')">Página inicial (TESTE)</button>
 </ng-container>
-

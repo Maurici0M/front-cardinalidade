@@ -5,3 +5,7 @@
 <ng-container *ngIf="subPage === 'LISTAGEM'">
   <app-listagem-compradores></app-listagem-compradores>
 </ng-container>
+
+<ng-container *ngIf="subPage === 'EDITAR'">
+  <editar-cadastro [userAccess]="userAccess"></editar-cadastro>
+</ng-container>
