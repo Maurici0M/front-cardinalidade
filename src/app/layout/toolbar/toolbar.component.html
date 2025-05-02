@@ -1,0 +1,39 @@
+<mat-toolbar>
+  <div class="logo">
+    <button mat-icon-button class="icon menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span (click)="redirectToHome()"><b>Projeto Angular</b></span>
+  </div>
+
+  <span class="example-spacer"></span>
+
+  <div class="buttons-container">
+    <button
+      mat-button
+      color="primary"
+      class="button secundario"
+      (click)="redirectToListagem()"
+    >
+      <span>Ranking</span>
+    </button>
+
+    <button
+      mat-button
+      color="primary"
+      class="button secundario"
+      (click)="redirectToLogin()"
+    >
+      <span>Login</span>
+    </button>
+
+    <button
+      mat-raised-button
+      color="primary"
+      class="button principal"
+      (click)="redirectToCadastro()"
+    >
+      <span>Cadastro</span>
+    </button>
+  </div>
+</mat-toolbar>

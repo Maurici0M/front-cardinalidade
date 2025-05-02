@@ -1,0 +1,51 @@
+
+.mat-toolbar{
+  position: fixed;
+  z-index: 10000;
+
+  .logo{
+    display: flex;
+    gap: 12px;
+    align-items: center;
+
+    span{
+      color: black;
+      cursor: pointer;
+    }
+  }
+
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .buttons-container {
+    display: flex;
+    gap: 12px;
+
+   .button{
+    color: aqua;
+
+    span{
+      font-weight: 700;
+    }
+
+    &.principal{
+      span{
+        color: #fff;
+      }
+    }
+
+    &.secundario{
+      span{
+        color: black;
+      }
+    }
+   }
+
+    button{
+      span{
+        font-weight: 800;
+      }
+    }
+  }
+}
