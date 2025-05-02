@@ -14,36 +14,53 @@ import {
   providedIn: 'root',
 })
 export class CompradorService {
-  //private apiUrl = 'https://cardinalidade-production.up.railway.app/comprador/';
+  private apiUrlServer = 'https://cardinalidade-production.up.railway.app/comprador/';
 
-  private apiUrl = 'http://localhost:8080/comprador/';
+  private apiUrlLocal = 'http://localhost:8080/comprador/';
 
   constructor(private http: HttpClient) {}
 
   cadastrar(dados: CompradorCadastro): Observable<any> {
-    return this.http.post<CompradorCadastro>(this.apiUrl, dados);
+    return this.http.post<CompradorCadastro>(this.apiUrlLocal, dados);
+
+    return this.http.post<CompradorCadastro>(this.apiUrlServer, dados);
+
   }
 
   listar(): Observable<CompradorListagem[]> {
-    return this.http.get<CompradorListagem[]>(this.apiUrl);
+    return this.http.get<CompradorListagem[]>(this.apiUrlLocal);
+
+    return this.http.get<CompradorListagem[]>(this.apiUrlServer);
   }
 
   listarByCPF(cpf: CompradorListarByCPF): Observable<any> {
     return this.http.post<CompradorListarByCPF>(
-      `${this.apiUrl}listar/cpf`,
+      `${this.apiUrlLocal}listar/cpf`,
+      cpf
+    );
+
+    return this.http.post<CompradorListarByCPF>(
+      `${this.apiUrlServer}listar/cpf`,
       cpf
     );
   }
 
   atualizarCadastro(dados: CompradorAtualizarCadastro): Observable<any> {
-    return this.http.put<CompradorAtualizarCadastro>(`${this.apiUrl}`, dados);
+    return this.http.put<CompradorAtualizarCadastro>(`${this.apiUrlLocal}`, dados);
+
+    return this.http.put<CompradorAtualizarCadastro>(`${this.apiUrlServer}`, dados);
   }
 
   excluirCadastroByCpf(cpf: CompradorExcluirCadastroByCPF): Observable<any> {
     const params = new HttpParams().set('cpf', cpf.cpf);
 
-    return this.http.delete<CompradorExcluirCadastroByCPF>(`${this.apiUrl}`, {
+    return this.http.delete<CompradorExcluirCadastroByCPF>(`${this.apiUrlLocal}`, {
+      params,
+    });
+
+    return this.http.delete<CompradorExcluirCadastroByCPF>(`${this.apiUrlServer}`, {
       params,
     });
   }
+
 }
