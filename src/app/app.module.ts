@@ -14,11 +14,19 @@ import { MatInputModule } from '@angular/material/input';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { HttpClientModule } from '@angular/common/http';
 import {MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule, NativeDateAdapter, DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 
 import { ListagemCompradoresComponent } from './comprador/pages/listagem-compradores/listagem-compradores.component';
 import { CadastroCompradorComponent } from './comprador/pages/cadastro-comprador/cadastro-comprador.component';
 import { CompradorComponent } from './comprador/comprador.component';
 import { EditarCadastroComponent } from './comprador/pages/editar-cadastro/editar-cadastro.component';
+import { HomePageComponent } from './home/home-page/home-page.component';
+import { ToolbarComponent } from './layout/toolbar/toolbar.component';
+import { RodapeComponent } from './layout/rodape/rodape.component';
+import { MY_DATE_FORMATS } from './shared/formatador-data';
 
 @NgModule({
   declarations: [
@@ -27,6 +35,9 @@ import { EditarCadastroComponent } from './comprador/pages/editar-cadastro/edita
     CadastroCompradorComponent,
     CompradorComponent,
     EditarCadastroComponent,
+    HomePageComponent,
+    ToolbarComponent,
+    RodapeComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,12 +50,18 @@ import { EditarCadastroComponent } from './comprador/pages/editar-cadastro/edita
     MatInputModule,
     NgxMaskDirective,
     HttpClientModule,
-    MatButtonModule
+    MatButtonModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     provideClientHydration(),
     provideAnimationsAsync(),
-    provideNgxMask()
+    provideNgxMask(),
+    { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }, // define a localização
+    { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS }, // aplica os formatos
   ],
   bootstrap: [AppComponent]
 })
