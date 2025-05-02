@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  @Input() currentPage: 'COMPRADOR_COMPONENT' | 'PEDIDO_COMPONENT' | 'TESTE' = 'TESTE'; //inicia no comprador component
+  @Input() currentPage: 'COMPRADOR_COMPONENT' | 'PEDIDO_COMPONENT' | 'HOME' = 'HOME'; //inicia no HOME-PAGE component
   @Input() subPage: 'CADASTRO' | 'LISTAGEM' | 'EDITAR' = 'CADASTRO'; //inicia no cadastro
   @Input() statusPage: 'SUCCESS' | 'ERROR' | 'WARNING' = 'ERROR'; //inicia no erro
   @Input() msgError!: string;

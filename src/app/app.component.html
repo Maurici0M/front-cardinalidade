@@ -1,29 +1,18 @@
-<ng-container *ngIf="currentPage === 'TESTE'">
-  <p>
-    <b>Teste</b> de renderização dinâmica com input e output para o componente
-    de comprador
-  </p>
+<app-toolbar (onPageView)="onPageViewChange($event)"></app-toolbar>
 
-  <button (click)="testeMudaPagina('COMPRADOR_COMPONENT', 'CADASTRO')">
-    TESTE Comprador Component
-  </button>
+<section class="container-components">
+  <ng-container *ngIf="currentPage === 'HOME'">
+    <home-page (onPageView)="onPageViewChange($event)"></home-page>
+  </ng-container>
 
-  <button (click)="testeMudaPagina('COMPRADOR_COMPONENT', 'LISTAGEM')">
-    TESTE LISTAGEM COMPRADOR Component
-  </button>
+  <ng-container *ngIf="currentPage === 'COMPRADOR_COMPONENT'">
+    <app-comprador
+      (onPageView)="onPageViewChange($event)"
+      [subPage]="subPage"
+      [userAccess]="userAccess"
+    >
+    </app-comprador>
+  </ng-container>
+</section>
 
-  <button (click)="testeMudaPagina('COMPRADOR_COMPONENT', 'EDITAR')">
-    TESTE EDITAR CADASTRO COMPRADOR Component
-  </button>
-</ng-container>
-
-<ng-container *ngIf="currentPage === 'COMPRADOR_COMPONENT'">
-  <app-comprador
-    (onPageView)="onPageViewChange($event)"
-    [subPage]="subPage"
-    [userAccess]="userAccess"
-  >
-  </app-comprador>
-
-  <button (click)="testeMudaPagina('TESTE')">Página inicial (TESTE)</button>
-</ng-container>
+<!-- <app-rodape></app-rodape> -->
